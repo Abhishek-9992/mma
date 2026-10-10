@@ -57,10 +57,10 @@ const wss = new WebSocketServer({ server });
 
 setupVoiceWebSocket(wss);
 
-server.listen(CONFIG.port, () => {
-  console.log(`🚀 Voice Agent & Cost Analytics Server running on http://localhost:${CONFIG.port}`);
-  console.log(`🎙️ Voice WebSocket Gateway available at ws://localhost:${CONFIG.port}/ws/voice`);
-  console.log(`📊 SSE Live Dashboard stream available at http://localhost:${CONFIG.port}/api/dashboard/events`);
+server.listen(CONFIG.port, '0.0.0.0', () => {
+  console.log(`🚀 Voice Agent & Cost Analytics Server running on http://0.0.0.0:${CONFIG.port}`);
+  console.log(`🎙️ Voice WebSocket Gateway available at ws://0.0.0.0:${CONFIG.port}/ws/voice`);
+  console.log(`📊 SSE Live Dashboard stream available at http://0.0.0.0:${CONFIG.port}/api/dashboard/events`);
 });
 
 export { app, server };
