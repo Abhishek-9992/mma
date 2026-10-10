@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "lucide-react": "^0.475.0",
+    "mma-gemini-voice-app": "file:..",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "recharts": "^2.15.1"
