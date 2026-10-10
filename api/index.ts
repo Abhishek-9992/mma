@@ -22,14 +22,21 @@ const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-// Routes
+// Mount routes with and without /api prefix for robust Vercel serverless routing
 app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes);
+
 app.use('/api/personas', personaRoutes);
+app.use('/personas', personaRoutes);
+
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/dashboard', dashboardRoutes);
+
 app.use('/api/voice', voiceRoutes);
+app.use('/voice', voiceRoutes);
 
 // Health check
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health'], (req, res) => {
   res.json({
     status: 'ok',
     environment: 'vercel-serverless',
